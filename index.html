@@ -165,7 +165,7 @@
         <h3>Es viu o només es diu?</h3>
         <div class="row"><b>Què aconsegueixes:</b> les 2-3 esquerdes entre el que DIUS, el que es VIU i el que VEUEN — per impacte en retenció.</div>
         <div class="row"><b>Com:</b> el GPT fa deep research de l'empresa i et fa preguntes intel·ligents. L'anàlisi surt d'aquí.</div>
-        <div class="row"><span class="tag">GPT + escolta</span><span class="tag">Google Forms / Hrider</span></div>
+        <div class="row"><span class="tag">GPT + escolta</span><span class="tag">Google Forms / NotebookLM</span></div>
       </div>
       <div class="phase">
         <div class="num">Fase 3 · Prova</div>
@@ -350,17 +350,14 @@ Després dona'm 3 micro-experiències en UN punt de contacte (onboarding / comun
 
 <script>
 const TOOLS=[
- {n:"GPT AYAM · Talent Mirror",ph:["1","2","3"],price:"free",pr:"Gratis",lang:"CA/ES",mirror:true,what:"El GPT ja muntat: t'entrevista i converteix les teves anècdotes en un EVP honest; fa el diagnòstic i les micro-experiències.",when:"Sempre, per començar. És el cor del sistema.",url:"https://chatgpt.com/g/g-6a31264a4e40819180902524214fdbea-ayam-talent-mirror"},
- {n:"Claude",ph:["1","2","3"],price:"freemium",pr:"Freemium",lang:"CA/ES",mirror:true,what:"Alternativa al GPT per enganxar els prompts; molt bo amb text llarg.",when:"Si prefereixes Claude per als prompts.",url:"https://claude.ai"},
+ {n:"GPT AYAM · Talent Mirror",ph:["1","2","3"],price:"free",pr:"Gratis",lang:"CA/ES",mirror:true,what:"El cor del sistema, ja muntat. Fa tot el procés: et construeix l'EVP (Fase 1); fa deep research de la teva empresa i et fa preguntes intel·ligents per trobar les esquerdes entre el que dius i el que fas (Fase 2); analitza comentaris i ressenyes per tema, sentiment i intenció; fa de candidat de diferents generacions; dissenya micro-experiències provables i fins i tot t'ajuda a assajar la conversa clau (Fase 3).",when:"Sempre, per a tot el procés. És el cervell del Talent OS.",url:"https://chatgpt.com/g/g-6a31264a4e40819180902524214fdbea-ayam-talent-mirror"},
+ {n:"Google NotebookLM",ph:["1","2","3","4"],price:"free",pr:"Gratis",lang:"CA/ES",mirror:false,what:"Puja els teus documents (onboarding, conveni, polítiques) i et fa resums, respostes i fins i tot un àudio-resum. Tot surt dels teus papers, sense inventar.",when:"Per posar ordre i treure l'essència de la documentació de RRHH que ja tens.",url:"https://notebooklm.google.com"},
+ {n:"Gemini",ph:["1","2","3","4"],price:"freemium",pr:"Freemium",lang:"CA/ES",mirror:false,what:"L'assistent d'IA de Google, integrat amb Gmail, Docs i Drive: redactar, resumir i pensar al teu dia a dia.",when:"Si treballes amb l'entorn Google.",url:"https://gemini.google.com"},
+ {n:"Microsoft Copilot",ph:["1","2","3","4"],price:"freemium",pr:"Freemium",lang:"CA/ES",mirror:false,what:"L'assistent d'IA de Microsoft, dins de Word, Excel, Outlook i Teams.",when:"Si la teva empresa treballa amb Office 365.",url:"https://copilot.microsoft.com"},
  {n:"Google Forms",ph:["2"],price:"free",pr:"Gratis",lang:"CA/ES",mirror:false,what:"Enquestes anònimes en 5 minuts (pols, eNPS, 'recomanaries treballar aquí?').",when:"Per recollir senyal ràpid sense comprar res.",url:"https://forms.google.com"},
- {n:"Hrider",ph:["2"],price:"pay",pr:"Pagament",lang:"CA/ES",mirror:false,what:"Clima, engagement, 360º i people analytics amb IA. Software català/espanyol.",when:"Si necessites alguna cosa seriosa amb suport en català.",url:"https://www.hrider.net"},
- {n:"ChatGPT / Claude (anàlisi de text)",ph:["2"],price:"freemium",pr:"Freemium",lang:"Multi",mirror:true,what:"Enganxa comentaris o ressenyes i te'ls classifica per tema, sentiment i intenció.",when:"Quan ja tens text i vols veure patrons sense pagar plataforma. (Glassdoor/Indeed bloquegen la IA: copia-les tu.)",url:"https://chatgpt.com"},
  {n:"Canva",ph:["3"],price:"freemium",pr:"Freemium",lang:"CA/ES",mirror:false,what:"Converteix l'EVP o el ritual en alguna cosa visual (pòster intern, targeta de benvinguda).",when:"Perquè l'ànima es vegi, no només es digui.",url:"https://www.canva.com"},
- {n:"VirtualSpeech",ph:["3"],price:"freemium",pr:"Freemium",lang:"Multi",mirror:false,what:"Role-plays de habilitats toves amb feedback d'IA, més guiat que un prompt.",when:"Si vols pràctica estructurada per a comandaments.",url:"https://virtualspeech.com"},
  {n:"Connecteam",ph:["4"],price:"freemium",pr:"Freemium (fins 10)",lang:"Multi",mirror:false,what:"App mòbil per a equip de botiga SENSE email; onboarding, comunicació, torns.",when:"Per arribar a la gent de botiga al mòbil.",url:"https://connecteam.com"},
  {n:"WhatsApp Business",ph:["4"],price:"free",pr:"Gratis",lang:"CA/ES",mirror:false,what:"Canal directe i realista per a comunicació interna de botiga.",when:"Si no vols una app nova; el que ja fan servir tots.",url:"https://business.whatsapp.com"},
- {n:"Nota de veu real (mòbil)",ph:["4"],price:"free",pr:"Gratis",lang:"Qualsevol",mirror:true,what:"El fundador grava 30 seg de benvinguda amb la seva veu real.",when:"Dia 1 de qualsevol persona nova. Bat qualsevol avatar d'IA.",url:""},
- {n:"ElevenLabs",ph:["4"],price:"freemium",pr:"Freemium",lang:"Multi",mirror:false,what:"Genera/clona veu per escalar missatges (traduir, personalitzar).",when:"Només per escalar un missatge genuí. Clonar veu requereix consentiment.",url:"https://elevenlabs.io"},
  {n:"Looker Studio + Google Sheets",ph:["4"],price:"free",pr:"Gratis",lang:"CA/ES",mirror:false,what:"Quadre simple de rotació, eNPS i temps de cobertura per botiga.",when:"Per al ritual mensual de 30 min. Mesura pertinença, no només baixes.",url:"https://lookerstudio.google.com"}
 ];
 const grid=document.getElementById('toolGrid');
