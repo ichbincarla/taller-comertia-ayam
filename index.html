@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Talent Retention OS · AYAM × Comertia</title>
+<meta name="description" content="Sistema en 4 fases + prompts d'IA per fer visible l'ànima de la teva empresa i retenir talent. Per a responsables de RRHH." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --teal:#344E5A; --teal2:#3A5868; --steel:#6B8D9B;
+    --paper:#F7F7F9; --paper2:#F0EDE8; --ink:#1E1F1F;
+    --verde:#1BA969; --azul:#6AB6A1; --coral:#F36C69; --amar:#EAF24E;
+    --muted:#6b6b63; --line:#e6e0d6;
+    --serif:'Fraunces',Georgia,serif; --sans:'Inter',system-ui,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.55;font-size:17px;}
+  h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.12;margin:0 0 .4em;}
+  a{color:inherit;}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 22px;}
+  .kick{font-family:var(--sans);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:12.5px;}
+  /* header */
+  header{position:sticky;top:0;z-index:50;background:rgba(52,78,90,.96);backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,.08);}
+  header .wrap{display:flex;align-items:center;justify-content:space-between;height:58px;}
+  .brand{font-family:var(--serif);font-weight:600;color:var(--paper);font-size:19px;letter-spacing:.02em;}
+  .brand b{color:var(--amar);}
+  nav a{color:#cdd9de;text-decoration:none;font-size:14px;font-weight:500;margin-left:20px;}
+  nav a:hover{color:#fff;}
+  .navlinks{display:none;}
+  @media(min-width:820px){.navlinks{display:block;}}
+  /* sections */
+  section{padding:72px 0;border-top:1px solid var(--line);}
+  .teal{background:var(--teal);color:var(--paper);border-top:none;}
+  .teal .kick{color:var(--amar);}
+  .teal h2,.teal h1{color:var(--paper);}
+  .lead{font-size:19px;color:var(--muted);max-width:720px;}
+  .teal .lead{color:#c3d0d6;}
+  .accent-bar{width:46px;height:5px;background:var(--coral);border-radius:3px;margin:0 0 22px;}
+  .teal .accent-bar{background:var(--amar);}
+  /* hero */
+  .hero h1{font-size:clamp(34px,6vw,60px);color:var(--paper);max-width:14ch;}
+  .hero .sub{font-size:19px;color:#c3d0d6;max-width:640px;margin-top:14px;}
+  .stats{display:flex;flex-wrap:wrap;gap:26px;margin:38px 0 30px;}
+  .stat{flex:1 1 180px;min-width:160px;}
+  .stat .n{font-family:var(--serif);font-size:42px;color:var(--amar);font-weight:600;}
+  .stat .d{font-size:14px;color:#c3d0d6;}
+  .stat .src{font-size:11px;color:var(--steel);margin-top:4px;}
+  .btn{display:inline-block;background:var(--amar);color:var(--ink);font-weight:700;text-decoration:none;padding:13px 22px;border-radius:10px;font-size:15px;border:none;cursor:pointer;font-family:var(--sans);}
+  .btn:hover{filter:brightness(.95);}
+  .btn.ghost{background:transparent;color:var(--paper);border:1.5px solid rgba(255,255,255,.4);}
+  /* roadmap */
+  .phases{display:grid;grid-template-columns:1fr;gap:18px;margin-top:30px;}
+  @media(min-width:760px){.phases{grid-template-columns:1fr 1fr;}}
+  .phase{background:#fff;border:1px solid var(--line);border-left:6px solid var(--verde);border-radius:14px;padding:22px 22px 20px;}
+  .phase:nth-child(2){border-left-color:var(--azul);}
+  .phase:nth-child(3){border-left-color:var(--coral);}
+  .phase:nth-child(4){border-left-color:var(--teal);}
+  .phase .num{font-family:var(--serif);font-size:14px;color:var(--muted);font-weight:600;letter-spacing:.12em;text-transform:uppercase;}
+  .phase h3{font-size:23px;margin:.15em 0 .35em;}
+  .phase .row{font-size:15px;margin:8px 0;}
+  .phase .row b{font-weight:700;}
+  .tag{display:inline-block;font-size:12px;font-weight:600;background:var(--paper2);color:var(--ink);border-radius:20px;padding:3px 11px;margin:3px 4px 0 0;}
+  /* prompts */
+  .promptcard{background:#fff;border:1px solid var(--line);border-radius:14px;margin-top:20px;overflow:hidden;}
+  .promptcard .ph{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:18px 20px 6px;}
+  .promptcard h3{font-size:20px;margin:0;}
+  .promptcard .desc{font-size:14px;color:var(--muted);padding:0 20px 12px;}
+  pre.prompt{margin:0;background:var(--paper2);color:var(--ink);font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;line-height:1.5;white-space:pre-wrap;padding:18px 20px;max-height:300px;overflow:auto;border-top:1px solid var(--line);}
+  .copybtn{flex:0 0 auto;background:var(--teal);color:#fff;border:none;border-radius:8px;padding:9px 15px;font-weight:600;font-size:13px;cursor:pointer;font-family:var(--sans);white-space:nowrap;}
+  .copybtn:hover{background:var(--teal2);}
+  .copybtn.ok{background:var(--verde);}
+  /* tools */
+  .filters{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0 6px;}
+  .filters .fbtn{background:#fff;border:1px solid var(--line);border-radius:20px;padding:7px 14px;font-size:13px;font-weight:600;cursor:pointer;color:var(--ink);}
+  .filters .fbtn.active{background:var(--teal);color:#fff;border-color:var(--teal);}
+  .filters .lbl{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);align-self:center;margin-right:4px;}
+  .tools{display:grid;grid-template-columns:1fr;gap:16px;margin-top:18px;}
+  @media(min-width:680px){.tools{grid-template-columns:1fr 1fr;}}
+  .tool{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 18px 16px;display:flex;flex-direction:column;}
+  .tool h3{font-size:18px;margin:0 0 6px;}
+  .tool .badges{margin:0 0 8px;}
+  .badge{display:inline-block;font-size:11px;font-weight:700;border-radius:20px;padding:2px 9px;margin:0 5px 5px 0;}
+  .b-free{background:#dff3e8;color:#176c45;}
+  .b-freemium{background:#fff2d6;color:#8a5a00;}
+  .b-pay{background:#eceae6;color:#555;}
+  .b-lang{background:#e4eef0;color:#27606e;}
+  .b-mirror{background:#fde3e2;color:#a3322f;}
+  .tool .what{font-size:14px;margin:2px 0;}
+  .tool .when{font-size:13px;color:var(--muted);margin:2px 0 12px;}
+  .tool a.link{margin-top:auto;font-weight:700;font-size:14px;color:var(--verde);text-decoration:none;}
+  .tool a.link:hover{text-decoration:underline;}
+  /* legal */
+  .redcards{display:grid;grid-template-columns:1fr;gap:16px;margin-top:24px;}
+  @media(min-width:760px){.redcards{grid-template-columns:1fr 1fr 1fr;}}
+  .red{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-left:5px solid var(--coral);border-radius:12px;padding:18px;}
+  .red h3{font-size:17px;color:var(--paper);}
+  .red p{font-size:14px;color:#c3d0d6;margin:.4em 0 0;}
+  .golden{margin-top:22px;background:rgba(234,242,78,.12);border:1px solid rgba(234,242,78,.4);border-radius:12px;padding:18px 20px;color:var(--paper);font-family:var(--serif);font-size:18px;}
+  .foot-note{font-size:12px;color:var(--steel);margin-top:14px;}
+  /* plan */
+  .plan{counter-reset:step;margin-top:24px;display:grid;gap:12px;}
+  .plan .s{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;}
+  .plan .s .b{flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:var(--teal);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:14px;}
+  .plan .s p{margin:0;font-size:15px;}
+  footer{background:var(--ink);color:#cfcfca;padding:40px 0;border-top:none;}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center;}
+  footer .phrase{font-family:var(--serif);color:#fff;font-size:17px;max-width:520px;}
+  footer .sm{font-size:13px;color:#9a9a93;}
+  .center{text-align:center;}
+  .mtop{margin-top:26px;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="brand">AYAM <b>·</b> Talent Retention OS</div>
+    <nav class="navlinks">
+      <a href="#roadmap">Roadmap</a>
+      <a href="#prompts">Prompts</a>
+      <a href="#eines">Eines</a>
+      <a href="#legal">Línies vermelles</a>
+      <a href="#tancament">Pla 7 dies</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="teal hero" id="top">
+  <div class="wrap">
+    <div class="kick">AYAM × Comertia · Recurs per a RRHH</div>
+    <h1 style="margin-top:18px;">Que la teva gent vulgui quedar-se. No pel sou, per pertinença.</h1>
+    <p class="sub">Un sistema en 4 fases + prompts d'IA per fer visible l'ànima de la teva empresa i retenir talent al retail. Fet per a responsables de persones, no per a enginyers.</p>
+    <div class="stats">
+      <div class="stat"><div class="n">45%</div><div class="d">menys probabilitat que algú marxi en 2 anys quan rep reconeixement de qualitat.</div><div class="src">Gallup-Workhuman, 2024</div></div>
+      <div class="stat"><div class="n">26,7%</div><div class="d">el retail és el sector amb més rotació voluntària.</div><div class="src">Mercer, 2025</div></div>
+      <div class="stat"><div class="n">80/20</div><div class="d">les millors empreses dediquen el 80% de l'esforç a COMPLIR l'EVP, no a definir-lo.</div><div class="src">Gartner</div></div>
+    </div>
+    <a class="btn" href="https://chatgpt.com/g/g-6a31264a4e40819180902524214fdbea-ayam-talent-mirror" target="_blank" rel="noopener">▶ Obre el GPT Talent Mirror</a>
+    <a class="btn ghost" href="#roadmap" style="margin-left:10px;">Veure el roadmap ↓</a>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section id="roadmap">
+  <div class="wrap">
+    <div class="accent-bar"></div>
+    <div class="kick" style="color:var(--coral)">El sistema</div>
+    <h2>El roadmap en 4 fases</h2>
+    <p class="lead">Un cervell que et guia (el GPT) + un stack d'eines al voltant. No cal fer-ho tot: tria una eina per fase i comença petit. <em>La IA és el mirall, mai el substitut del criteri humà.</em></p>
+    <div class="phases">
+      <div class="phase">
+        <div class="num">Fase 1 · Anomena</div>
+        <h3>Posa nom a la teva ànima</h3>
+        <div class="row"><b>Què aconsegueixes:</b> un EVP honest en 2-3 frases, amb la teva veu real (no de fullet).</div>
+        <div class="row"><b>Com:</b> obre el GPT Talent Mirror i respon de memòria. Sense enquestes, sense deures.</div>
+        <div class="row"><a class="tag" href="https://chatgpt.com/g/g-6a31264a4e40819180902524214fdbea-ayam-talent-mirror" target="_blank" rel="noopener" style="text-decoration:none;">GPT Talent Mirror ↗</a><span class="tag">30-45 min</span></div>
+      </div>
+      <div class="phase">
+        <div class="num">Fase 2 · Contrasta</div>
+        <h3>Es viu o només es diu?</h3>
+        <div class="row"><b>Què aconsegueixes:</b> les 2-3 esquerdes entre el que DIUS, el que es VIU i el que VEUEN — per impacte en retenció.</div>
+        <div class="row"><b>Com:</b> el GPT fa deep research de l'empresa i et fa preguntes intel·ligents. L'anàlisi surt d'aquí.</div>
+        <div class="row"><span class="tag">GPT + escolta</span><span class="tag">Google Forms / Hrider</span></div>
+      </div>
+      <div class="phase">
+        <div class="num">Fase 3 · Prova</div>
+        <h3>Dissenya un ritual que es noti dilluns</h3>
+        <div class="row"><b>Què aconsegueixes:</b> UNA micro-experiència en UN punt de contacte que tanqui l'esquerda més important.</div>
+        <div class="row"><b>Com:</b> el GPT pregunta abans de proposar i et dona 3 opcions (viabilitat, mesurable, cost, amb/sense IA).</div>
+        <div class="row"><span class="tag">GPT</span><span class="tag">Canva</span><span class="tag">1 dia + 1 setmana</span></div>
+      </div>
+      <div class="phase">
+        <div class="num">Fase 4 · Sostén</div>
+        <h3>Que no sigui un dia bonic</h3>
+        <div class="row"><b>Què aconsegueixes:</b> el ritual viu al canal on és la teva gent + 1 mètrica que segueixes de veritat.</div>
+        <div class="row"><b>Com:</b> canal frontline + una nota de veu real del fundador + un quadre simple de rotació/eNPS.</div>
+        <div class="row"><span class="tag">Connecteam / WhatsApp</span><span class="tag">Looker Studio</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROMPTS -->
+<section class="teal" id="prompts">
+  <div class="wrap">
+    <div class="accent-bar"></div>
+    <div class="kick">El cervell</div>
+    <h2>El repositori de prompts</h2>
+    <p class="lead">Copia'ls i enganxa'ls a ChatGPT, Claude, Gemini o Copilot. Responen en l'idioma amb què els parlis (català o castellà). El GPT complet condueix les 3 fases; a sota tens també prompts ràpids per fase.</p>
+    <div class="mtop">
+      <a class="btn" href="https://chatgpt.com/g/g-6a31264a4e40819180902524214fdbea-ayam-talent-mirror" target="_blank" rel="noopener">▶ Obre el GPT Talent Mirror (ja muntat)</a>
+      <button class="btn ghost" id="downloadAll" style="margin-left:10px;">⬇ Descarrega tots els prompts (.txt)</button>
+    </div>
+    <p class="lead" style="margin-top:14px;font-size:15px;">Ja tens el GPT llest per fer servir: <a href="https://chatgpt.com/g/g-6a31264a4e40819180902524214fdbea-ayam-talent-mirror" target="_blank" rel="noopener" style="color:var(--amar);font-weight:600;">AYAM · Talent Mirror ↗</a>. A sota tens els prompts per si vols crear el teu propi GPT o usar-los a qualsevol IA.</p>
+
+    <div class="promptcard">
+      <div class="ph"><h3>GPT Talent Mirror — el complet (per crear el Custom GPT)</h3><span style="display:flex;gap:8px;"><a class="copybtn" style="text-decoration:none;background:var(--amar);color:var(--ink);" href="https://chatgpt.com/g/g-6a31264a4e40819180902524214fdbea-ayam-talent-mirror" target="_blank" rel="noopener">Obrir ↗</a><button class="copybtn" data-target="p-main">Copiar</button></span></div>
+      <div class="desc">Ja el tens muntat (botó "Obrir"). O enganxa aquest text a ChatGPT → Crear GPT → Instruccions. Condueix Anomena → Contrasta (amb recerca) → Prova.</div>
+<pre class="prompt" id="p-main"># ROL I MISSIÓ
+Ets "Talent Mirror", un facilitador expert per a responsables de RRHH (sobretot retail i empresa familiar). Ajudes a fer VISIBLE l'ànima d'una empresa com a empleadora i a convertir-la en un lloc on la gent vulgui quedar-se. Penses amb els principis de màrqueting que complau el cervell de Lluís Martínez-Ribes, però parles en llenguatge de RRHH. Tesi: contra les grans cadenes no es guanya pel sou, es guanya per PERTINENÇA — pel paper que la teva empresa juga en la vida de qui hi treballa.
+
+# IDIOMA
+Respon SEMPRE en català per defecte. Si la persona t'escriu en castellà, canvia al castellà tota la conversa. Adapta't a l'idioma de l'usuari mantenint el mateix to.
+
+# TO (molt important)
+Càlid, proper i afable, com algú de RRHH que t'entén i no et jutja. Directe però sempre amable; agut sense ser fred. Frases curtes. Gens de jargó corporatiu buit. Acompanya, no examinis. Quan assenyalis una incoherència, fes-ho amb cura: la fractura és un regal, no un retret.
+
+# PRINCIPIS DE CERVELL (la teva lent — de Lluís Martínez-Ribes; aplica'ls sempre, sense dir-los com a argot)
+- El cervell decideix primer amb l'emoció (límbic) i justifica després amb la raó. Primer fes SENTIR, després raona.
+- Escapar del commodity: "no oferim una feina, oferim [millora concreta en la vida de la persona]".
+- El tàlem descarta les paraules abstractes (qualitat, passió, compromís, bon ambient, família). Rebutja-les amb afecte i demana la cosa concreta i viscuda que hi ha a sota.
+- Harmonitza, no convencis: ves per la ruta del "sí, però…".
+- BRÚIXOLA (GPS) — només INTERNAMENT: "Per a qui hi treballa, ets el [rol] que els ajuda a [millora de vida] quan [moment]." Després lliura l'EVP en prosa.
+- Imaginació primer; recolza't en evidència real; no inventis mai.
+
+# REGLES D'OR
+- No inventis dades internes: demana-les. Marca el que dedueixes amb [hipòtesi].
+- Anti-adulació amable: si l'EVP és genèric, digues-ho amb tacte.
+- En viu, zero deures per avançar: treballa amb el que la persona recorda ARA i amb el que TU puguis investigar. No demanis enquestes per continuar.
+- Una cosa cada cop.
+
+# LÍNIES VERMELLES (RGPD / AI Act)
+- Text sí, biometria no: inferir emocions per cara/veu/gestos a la feina està prohibit (AI Act, art. 5).
+- Dades personals: demana anonimitzar (RGPD). Treballa amb dades agregades.
+- IA que decideix sobre persones = alt risc: supervisió humana. La decisió la pren sempre una persona.
+
+# ARRENCADA (màx 5 preguntes, una tanda)
+Presenta't en una frase i pregunta: empresa i sector (i web); nº persones i botigues; si és familiar i quina generació mana; el dolor de talent més gran ara; i, de memòria, per què es queda algú de +5 anys + un moment que defineixi la cultura.
+
+# FASE 1 · ANOMENA — l'EVP (en prosa)
+Mapeja el "Wanted" del talent (dolors, il·lusions, context, el MOMENT). Fes "5 per-quès". Caça paraules genèriques. Torna un EVP honest en 2-3 frases amb la seva veu, que faci SENTIR el paper que l'empresa juga en la vida de la gent. Anomena l'ànima diferencial. Marca promeses exigents amb "comprova que la realitat la sosté". Passa a CONTRASTA.
+
+# FASE 2 · CONTRASTA — deep research + preguntes
+1. DEEP RESEARCH: cerca web de l'empresa (web, "treballa amb nosaltres", premsa, LinkedIn). Si és pime amb poc rastre, no et bloquegis.
+2. PREGUNTES INTEL·LIGENTS: 2-3 preguntes que facin aflorar les fractures diem/fem, per la ruta "sí, però…".
+3. ANÀLISI: test de cada promesa (✓ corroborada / ⚠ contradita / ? sense evidència); mirall de candidats (Gen Z, mitja carrera, retorn); 2-3 esquerdes [hipòtesi] per impacte. Demana triar UNA esquerda.
+
+# FASE 3 · PROVA
+Abans de proposar, PREGUNTA (qui ho mou, recursos, com sabrem que funciona, què s'ha provat). Després 3 micro-experiències en UN punt de contacte, cada una amb: viabilitat, mesurable, cost/esforç, amb/sense IA. Recomana'n UNA (qui fa què i quan, provable dilluns). Acaba amb pla de 7 dies i la pregunta: "Què seria diferent si cada persona SENTÍS que pertany abans de poder explicar per què?"
+
+# QUÈ NO FER
+No donis consells genèrics. No facis l'EVP amb paraules-tàlem. No demanis enquestes per avançar. No suposis a PROVA: pregunta abans. No adulis. No siguis fred: to sempre afable.</pre>
+    </div>
+
+    <div class="promptcard">
+      <div class="ph"><h3>Ràpid · Anomena (EVP)</h3><button class="copybtn" data-target="p-anomena">Copiar</button></div>
+<pre class="prompt" id="p-anomena">Fes d'estrateg d'employer branding emocional i parla en llenguatge de RRHH, càlid i afable. Som [empresa], [sector], [X] persones.
+De memòria (sense enquestes), et dono: com expliquem avui per què treballar amb nosaltres [enganxa oferta/onboarding/web]; i 3 moments reals — per què crec que es va quedar algú de +5 anys, una cosa que algú va dir i ens va sorprendre, i què fa la família fundadora que cap manual recolliria.
+Torna'm un EVP honest en 2-3 frases amb la nostra veu real, sense paraules buides (res de "qualitat/passió/compromís"), que faci SENTIR el paper que juguem en la vida de la gent. Digues l'ànima diferencial (allò que un competidor no pot copiar) i marca qualsevol promesa exigent amb "comprova que la realitat la sosté".</pre>
+    </div>
+
+    <div class="promptcard">
+      <div class="ph"><h3>Ràpid · Contrasta (coherència)</h3><button class="copybtn" data-target="p-contrasta">Copiar</button></div>
+<pre class="prompt" id="p-contrasta">Fes d'auditor de coherència d'employer branding, afable però honest. El nostre EVP és: [enganxa'l].
+1) Fes un mini deep-research públic de [empresa + web] (no et bloquegis si és pime amb poc rastre).
+2) Fes-me 2-3 preguntes intel·ligents que facin aflorar les fractures entre el que diem i el que fem, sense acusar (ruta "sí, però…").
+3) Amb les meves respostes, dona'm: test de cada promesa (✓ corroborada / ⚠ contradita / ? sense evidència); com ho veuria un candidat Gen Z, un de mitja carrera i un que torna al mercat; i 2-3 esquerdes [hipòtesi] ordenades per impacte en retenció. Acaba demanant-me que triï UNA esquerda.</pre>
+    </div>
+
+    <div class="promptcard">
+      <div class="ph"><h3>Ràpid · Prova (micro-experiència)</h3><button class="copybtn" data-target="p-prova">Copiar</button></div>
+<pre class="prompt" id="p-prova">Hem detectat aquesta esquerda: [escriu-la]. La nostra ànima/EVP és: [X].
+Abans de proposar res, fes-me 2-3 preguntes per aterrar la realitat (qui ho pot moure, amb quins recursos, com sabríem que funciona, què hem provat ja).
+Després dona'm 3 micro-experiències en UN punt de contacte (onboarding / comunicació interna / ritual de botiga) que la tanquin. Per a cada una: viabilitat (alta/mitjana/baixa), com es mesura, cost/esforç (baix/mitjà/alt) i amb IA o sense IA. Recomana'n UNA: qui fa què i quan, en una frase, provable dilluns que ve.</pre>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section id="eines">
+  <div class="wrap">
+    <div class="accent-bar"></div>
+    <div class="kick" style="color:var(--coral)">Les mans</div>
+    <h2>Biblioteca d'eines</h2>
+    <p class="lead">Una selecció assequible (no totes les del mercat). Comprova sempre el pla gratuït abans de comprometre't. 🪞 = ho pots fer amb el GPT; l'eina només et dona escala.</p>
+    <div class="filters" id="filterPhase">
+      <span class="lbl">Fase</span>
+      <button class="fbtn active" data-f="all">Totes</button>
+      <button class="fbtn" data-f="1">1 · Anomena</button>
+      <button class="fbtn" data-f="2">2 · Contrasta</button>
+      <button class="fbtn" data-f="3">3 · Prova</button>
+      <button class="fbtn" data-f="4">4 · Sostén</button>
+    </div>
+    <div class="filters" id="filterPrice">
+      <span class="lbl">Preu</span>
+      <button class="fbtn active" data-p="all">Tots</button>
+      <button class="fbtn" data-p="free">Gratis</button>
+      <button class="fbtn" data-p="freemium">Freemium</button>
+      <button class="fbtn" data-p="pay">Pagament</button>
+    </div>
+    <div class="tools" id="toolGrid"></div>
+  </div>
+</section>
+
+<!-- LEGAL -->
+<section class="teal" id="legal">
+  <div class="wrap">
+    <div class="accent-bar"></div>
+    <div class="kick">Fes-ho amb criteri</div>
+    <h2>3 línies vermelles (Espanya / UE)</h2>
+    <div class="redcards">
+      <div class="red">
+        <h3>1 · Text SÍ, biometria NO</h3>
+        <p>Analitzar comentaris i ressenyes en text amb IA és legal. Inferir emocions per la CARA, la VEU o els GESTOS a la feina està prohibit des de febrer de 2025 (art. 5 del Reglament Europeu d'IA). Mai usis IA que "llegeixi emocions" per càmera o micro.</p>
+      </div>
+      <div class="red">
+        <h3>2 · Informa la representació</h3>
+        <p>Si uses algoritmes o IA que afectin condicions de treball, accés o manteniment de l'ocupació (inclòs el perfilat), has d'informar-ne dels paràmetres la representació legal de la plantilla (art. 64.4.d de l'Estatut dels Treballadors, "Llei Rider").</p>
+      </div>
+      <div class="red">
+        <h3>3 · Si la IA puntua o decideix → atura't</h3>
+        <p>Usar IA per classificar, puntuar o decidir sobre persones (promoció, acomiadament, assignació) és "alt risc": cal supervisió humana i, sovint, una avaluació d'impacte abans de desplegar-la. Si només analitzes text agregat i anònim, el risc és baix.</p>
+      </div>
+    </div>
+    <div class="golden">Regla d'or: la IA és el mirall, mai qui decideix. La decisió final sobre una persona la pren sempre una persona. (No és només ètica: és requisit legal.)</div>
+    <p class="foot-note">Els terminis del Reglament d'IA estan en revisió (Digital Omnibus, 2026). Això és orientació general, no assessorament legal.</p>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section id="tancament">
+  <div class="wrap">
+    <div class="accent-bar"></div>
+    <div class="kick" style="color:var(--coral)">Posa-t'hi</div>
+    <h2>El teu pla de 7 dies</h2>
+    <div class="plan">
+      <div class="s"><div class="b">1</div><p>Avui: treu el teu EVP amb el Talent Mirror (Fase 1).</p></div>
+      <div class="s"><div class="b">2</div><p>Passa'l per Contrasta i queda't amb 1 esquerda (Fase 2).</p></div>
+      <div class="s"><div class="b">3</div><p>Si pots, recull senyal anònim curt (Google Forms) — opcional.</p></div>
+      <div class="s"><div class="b">4</div><p>Dissenya 1 micro-experiència per a aquesta esquerda (Fase 3).</p></div>
+      <div class="s"><div class="b">5</div><p>El comandament l'assaja abans de llançar-la.</p></div>
+      <div class="s"><div class="b">6</div><p>Dilluns que ve: prova-la en una botiga.</p></div>
+      <div class="s"><div class="b">7</div><p>A 30 dies: mira si la gent ho nota. Pregunta a 2-3 persones de +5 anys: "quin moment et va fer sentir que aquest era el teu lloc?"</p></div>
+    </div>
+    <div class="mtop"><button class="btn" id="downloadAll2">⬇ Descarrega els prompts (.txt)</button></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="phrase">Quan la cultura es fa visible, es converteix en un avantatge difícil de copiar.</div>
+    <div class="sm">AYAM × Comertia · Talent Retention OS<br/>La IA és el mirall, no el substitut del criteri humà.</div>
+  </div>
+</footer>
+
+<script>
+const TOOLS=[
+ {n:"GPT AYAM · Talent Mirror",ph:["1","2","3"],price:"free",pr:"Gratis",lang:"CA/ES",mirror:true,what:"El GPT ja muntat: t'entrevista i converteix les teves anècdotes en un EVP honest; fa el diagnòstic i les micro-experiències.",when:"Sempre, per començar. És el cor del sistema.",url:"https://chatgpt.com/g/g-6a31264a4e40819180902524214fdbea-ayam-talent-mirror"},
+ {n:"Claude",ph:["1","2","3"],price:"freemium",pr:"Freemium",lang:"CA/ES",mirror:true,what:"Alternativa al GPT per enganxar els prompts; molt bo amb text llarg.",when:"Si prefereixes Claude per als prompts.",url:"https://claude.ai"},
+ {n:"Google Forms",ph:["2"],price:"free",pr:"Gratis",lang:"CA/ES",mirror:false,what:"Enquestes anònimes en 5 minuts (pols, eNPS, 'recomanaries treballar aquí?').",when:"Per recollir senyal ràpid sense comprar res.",url:"https://forms.google.com"},
+ {n:"Hrider",ph:["2"],price:"pay",pr:"Pagament",lang:"CA/ES",mirror:false,what:"Clima, engagement, 360º i people analytics amb IA. Software català/espanyol.",when:"Si necessites alguna cosa seriosa amb suport en català.",url:"https://www.hrider.net"},
+ {n:"ChatGPT / Claude (anàlisi de text)",ph:["2"],price:"freemium",pr:"Freemium",lang:"Multi",mirror:true,what:"Enganxa comentaris o ressenyes i te'ls classifica per tema, sentiment i intenció.",when:"Quan ja tens text i vols veure patrons sense pagar plataforma. (Glassdoor/Indeed bloquegen la IA: copia-les tu.)",url:"https://chatgpt.com"},
+ {n:"Canva",ph:["3"],price:"freemium",pr:"Freemium",lang:"CA/ES",mirror:false,what:"Converteix l'EVP o el ritual en alguna cosa visual (pòster intern, targeta de benvinguda).",when:"Perquè l'ànima es vegi, no només es digui.",url:"https://www.canva.com"},
+ {n:"VirtualSpeech",ph:["3"],price:"freemium",pr:"Freemium",lang:"Multi",mirror:false,what:"Role-plays de habilitats toves amb feedback d'IA, més guiat que un prompt.",when:"Si vols pràctica estructurada per a comandaments.",url:"https://virtualspeech.com"},
+ {n:"Connecteam",ph:["4"],price:"freemium",pr:"Freemium (fins 10)",lang:"Multi",mirror:false,what:"App mòbil per a equip de botiga SENSE email; onboarding, comunicació, torns.",when:"Per arribar a la gent de botiga al mòbil.",url:"https://connecteam.com"},
+ {n:"WhatsApp Business",ph:["4"],price:"free",pr:"Gratis",lang:"CA/ES",mirror:false,what:"Canal directe i realista per a comunicació interna de botiga.",when:"Si no vols una app nova; el que ja fan servir tots.",url:"https://business.whatsapp.com"},
+ {n:"Nota de veu real (mòbil)",ph:["4"],price:"free",pr:"Gratis",lang:"Qualsevol",mirror:true,what:"El fundador grava 30 seg de benvinguda amb la seva veu real.",when:"Dia 1 de qualsevol persona nova. Bat qualsevol avatar d'IA.",url:""},
+ {n:"ElevenLabs",ph:["4"],price:"freemium",pr:"Freemium",lang:"Multi",mirror:false,what:"Genera/clona veu per escalar missatges (traduir, personalitzar).",when:"Només per escalar un missatge genuí. Clonar veu requereix consentiment.",url:"https://elevenlabs.io"},
+ {n:"Looker Studio + Google Sheets",ph:["4"],price:"free",pr:"Gratis",lang:"CA/ES",mirror:false,what:"Quadre simple de rotació, eNPS i temps de cobertura per botiga.",when:"Per al ritual mensual de 30 min. Mesura pertinença, no només baixes.",url:"https://lookerstudio.google.com"}
+];
+const grid=document.getElementById('toolGrid');
+let fPhase="all", fPrice="all";
+function render(){
+  grid.innerHTML="";
+  TOOLS.filter(t=>(fPhase==="all"||t.ph.includes(fPhase))&&(fPrice==="all"||t.price===fPrice)).forEach(t=>{
+    const el=document.createElement('div'); el.className="tool";
+    const pc=t.price==="free"?"b-free":(t.price==="freemium"?"b-freemium":"b-pay");
+    el.innerHTML=`<h3>${t.n}</h3>
+      <div class="badges">
+        <span class="badge ${pc}">${t.pr}</span>
+        <span class="badge b-lang">${t.lang}</span>
+        ${t.mirror?'<span class="badge b-mirror">🪞 GPT</span>':''}
+      </div>
+      <div class="what">${t.what}</div>
+      <div class="when">${t.when}</div>
+      ${t.url?`<a class="link" href="${t.url}" target="_blank" rel="noopener">Obrir ↗</a>`:'<span class="when">—</span>'}`;
+    grid.appendChild(el);
+  });
+}
+document.querySelectorAll('#filterPhase .fbtn').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('#filterPhase .fbtn').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active'); fPhase=b.dataset.f; render();
+});
+document.querySelectorAll('#filterPrice .fbtn').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('#filterPrice .fbtn').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active'); fPrice=b.dataset.p; render();
+});
+render();
+
+// copy buttons
+document.querySelectorAll('.copybtn').forEach(btn=>{
+  btn.onclick=()=>{
+    const txt=document.getElementById(btn.dataset.target).textContent;
+    navigator.clipboard.writeText(txt).then(()=>{
+      const o=btn.textContent; btn.textContent="✓ Copiat!"; btn.classList.add('ok');
+      setTimeout(()=>{btn.textContent=o; btn.classList.remove('ok');},1800);
+    });
+  };
+});
+// download all prompts
+function downloadPrompts(){
+  const ids=["p-main","p-anomena","p-contrasta","p-prova"];
+  const titles=["GPT TALENT MIRROR (COMPLET)","RÀPID · ANOMENA","RÀPID · CONTRASTA","RÀPID · PROVA"];
+  let out="TALENT RETENTION OS · AYAM × Comertia\nPrompts per a RRHH — la IA és el mirall, no qui decideix.\n\n";
+  ids.forEach((id,i)=>{out+="==================== "+titles[i]+" ====================\n\n"+document.getElementById(id).textContent+"\n\n\n";});
+  const blob=new Blob([out],{type:"text/plain;charset=utf-8"});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download="talent-retention-os-prompts.txt"; a.click();
+}
+document.getElementById('downloadAll').onclick=downloadPrompts;
+document.getElementById('downloadAll2').onclick=downloadPrompts;
+</script>
+</body>
+</html>
