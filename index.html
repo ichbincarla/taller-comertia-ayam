@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Talent Retention OS · AYAM × Comertia</title>
-<meta name="description" content="Sistema en 4 fases + prompts d'IA per fer visible l'ànima de la teva empresa i retenir talent. Per a responsables de RRHH." />
+<meta name="description" content="Sistema en 3 fases + prompts d'IA per fer visible l'ànima de la teva empresa i retenir talent. Per a responsables de RRHH." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -67,7 +67,7 @@
   /* prompts */
   .promptcard{background:#fff;border:1px solid var(--line);border-radius:14px;margin-top:20px;overflow:hidden;}
   .promptcard .ph{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:18px 20px 6px;}
-  .promptcard h3{font-size:20px;margin:0;}
+  .promptcard h3{font-size:20px;margin:0;color:var(--ink);}
   .promptcard .desc{font-size:14px;color:var(--muted);padding:0 20px 12px;}
   pre.prompt{margin:0;background:var(--paper2);color:var(--ink);font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;line-height:1.5;white-space:pre-wrap;padding:18px 20px;max-height:300px;overflow:auto;border-top:1px solid var(--line);}
   .copybtn{flex:0 0 auto;background:var(--teal);color:#fff;border:none;border-radius:8px;padding:9px 15px;font-weight:600;font-size:13px;cursor:pointer;font-family:var(--sans);white-space:nowrap;}
@@ -124,7 +124,6 @@
       <a href="#prompts">Prompts</a>
       <a href="#eines">Eines</a>
       <a href="#legal">Línies vermelles</a>
-      <a href="#tancament">Pla 7 dies</a>
     </nav>
   </div>
 </header>
@@ -268,6 +267,23 @@ Torna'm un EVP honest en 2-3 frases amb la nostra veu real, sense paraules buide
 Abans de proposar res, fes-me 2-3 preguntes per aterrar la realitat (qui ho pot moure, amb quins recursos, com sabríem que funciona, què hem provat ja).
 Després dona'm 3 micro-experiències en UN punt de contacte (onboarding / comunicació interna / ritual de botiga) que la tanquin. Per a cada una: viabilitat (alta/mitjana/baixa), com es mesura, cost/esforç (baix/mitjà/alt) i amb IA o sense IA. Recomana'n UNA: qui fa què i quan, en una frase, provable dilluns que ve.</pre>
     </div>
+
+    <div class="promptcard">
+      <div class="ph"><h3>El Mirall de Talent — el prompt del taller (versió simple)</h3><button class="copybtn" data-target="p-marlene">Copiar</button></div>
+      <div class="desc">Aquest és el prompt que vam fer servir <b>en directe al taller</b>: t'acompanya fins a l'EVP i el "per a qui NO és". Si vols fer <b>tot el procés d'una tirada</b> (EVP + diagnòstic de coherència + micro-millores), el bo és el <b>GPT complet de més amunt</b>.</div>
+<pre class="prompt" id="p-marlene">Ets El Mirall de Talent, un company de marca ocupadora per a empreses de retail. Acompanyes persones de RRHH i talent acquisition a passar de la promesa a la prova: posar nom a l'EVP. Ets expert en talent acquisition, marca ocupadora, employee value proposition i experiència candidat, però no fas servir argot de consultoria ni de RRHH. Treus el que ja és veritat i ho afiles.
+La veu ha de ser càlida, directa i premium. Has de respondre en l'idioma de la persona, català o castellà. Si dubtes, respon en català. Prioritza l'honestedat per sobre de l'afalac. Fes frases curtes. Evita guions llargs. No facis servir paraules buides ni tòpics. Fes una sola pregunta o un sol pas per missatge, excepte a l'arrencada inicial, que és una sola tanda amb tres preguntes.
+A l'arrencada, abans de res, presenta't en una frase dient qui ets i què fareu junts: Soc El Mirall de Talent. T'ajudaré a posar nom a allò que ja és veritat a la vostra empresa perquè el talent adequat ho pugui veure.
+Quina empresa sou i quina és la vostra web?
+Sou empresa familiar?
+Quin és el vostre dolor de talent més gran ara mateix? (atraure, trobar el perfil adequat, vacants difícils de cobrir (d'especialitat), rotació, fidelitzar, baixes o desmotivació). En la dinàmica inicial, quina frase has escrit per definir la marca de l'empresa? Mantén un to càlid i breu. Amb això n'hi ha prou per començar ANOMENA. No demanis res més a l'arrencada.
+Després de rebre les respostes inicials, retorna el mirall amb 2 o 3 frases i entra a ANOMENA. Si hi ha web, pots consultar-la per entendre millor l'empresa, però no inventis res i diferencia clarament el que ve de la persona del que ve de la web.
+A ANOMENA, fes 3 o 4 preguntes afilades, una per missatge, per treure la promesa real. Tria entre aquestes segons el cas: "Per què diries que es queda algú que ja fa més d'un any amb vosaltres, a botiga o a oficina?", "Quin tipus de persona encaixa de veritat aquí? I qui no dura ni un mes?", "Quin gest petit del dia a dia diu qui sou sense que ho escrigueu enlloc?", "Si una bona candidata tingués dues ofertes iguals, per què us triaria a vosaltres?". Adapta lleument la pregunta al context, però no canviïs l'esperit. No facis més d'una pregunta per missatge.
+Quan tinguis prou material, torna un EVP clar en 3 o 4 frases, amb la veu real de l'empresa i sense tòpics. Afegeix sempre "Per a qui NO és", que ha de funcionar com a filtre per reduir soroll en les candidatures. Afegeix també 2 o 3 proves que haurien de poder ensenyar perquè l'EVP sigui creïble: fets, no promeses. Després aplica una prova de realitat amb aquesta idea: "Un candidat s'ho creuria? Ho podria dir qualsevol competidor, o és vostre de veritat?". Si cal, ofereix una millora concreta.
+Tanca amb l'EVP final net, el "per a qui NO és" i una sola pregunta final: "El vols més càlid, més directe o més concret?".
+Respecta línies vermelles legals i ètiques. Recorda que el text sí, la biometria no: no ajudis a inferir emocions per cara, veu o gestos a la feina, perquè està prohibit pel Reglament Europeu d'IA en contextos laborals. Amb dades personals, demana anonimitzar i treballa amb dades agregades, d'acord amb el RGPD. Quan es parli d'IA en selecció o gestió de persones, deixa clar que si decideix o influeix en decisions sobre persones pot ser alt risc; la decisió final l'ha de prendre sempre una persona. La IA només ajuda a pensar, contrastar i redactar.
+No prometis diagnòstics definitius. No prenguis decisions de contractació, promoció, acomiadament o avaluació. No demanis dades sensibles, dades biomètriques ni informació identificable de candidats o empleats. Si la persona comparteix exemples, convida-la a anonimitzar-los. Mantén-te pràctic, específic i accionable.</pre>
+    </div>
   </div>
 </section>
 
@@ -322,25 +338,6 @@ Després dona'm 3 micro-experiències en UN punt de contacte (onboarding / comun
   </div>
 </section>
 
-<!-- CLOSING -->
-<section id="tancament">
-  <div class="wrap">
-    <div class="accent-bar"></div>
-    <div class="kick" style="color:var(--coral)">Posa-t'hi</div>
-    <h2>El teu pla de 7 dies</h2>
-    <div class="plan">
-      <div class="s"><div class="b">1</div><p>Avui: treu el teu EVP amb el Talent Mirror (Fase 1).</p></div>
-      <div class="s"><div class="b">2</div><p>Passa'l per Contrasta i queda't amb 1 esquerda (Fase 2).</p></div>
-      <div class="s"><div class="b">3</div><p>Si pots, recull senyal anònim curt (Google Forms) — opcional.</p></div>
-      <div class="s"><div class="b">4</div><p>Dissenya 1 micro-experiència per a aquesta esquerda (Fase 3).</p></div>
-      <div class="s"><div class="b">5</div><p>El comandament l'assaja abans de llançar-la.</p></div>
-      <div class="s"><div class="b">6</div><p>Dilluns que ve: prova-la en una botiga.</p></div>
-      <div class="s"><div class="b">7</div><p>A 30 dies: mira si la gent ho nota. Pregunta a 2-3 persones de +5 anys: "quin moment et va fer sentir que aquest era el teu lloc?"</p></div>
-    </div>
-    <div class="mtop"><button class="btn" id="downloadAll2">⬇ Descarrega els prompts (.txt)</button></div>
-  </div>
-</section>
-
 <footer>
   <div class="wrap">
     <div class="phrase">Quan la cultura es fa visible, es converteix en un avantatge difícil de copiar.</div>
@@ -350,14 +347,14 @@ Després dona'm 3 micro-experiències en UN punt de contacte (onboarding / comun
 
 <script>
 const TOOLS=[
- {n:"GPT AYAM · Talent Mirror",ph:["1","2","3"],price:"free",pr:"Gratis",lang:"CA/ES",mirror:true,what:"El cor del sistema, ja muntat. Fa tot el procés: et construeix l'EVP (Fase 1); fa deep research de la teva empresa i et fa preguntes intel·ligents per trobar les esquerdes entre el que dius i el que fas (Fase 2); analitza comentaris i ressenyes per tema, sentiment i intenció; fa de candidat de diferents generacions; dissenya micro-experiències provables i fins i tot t'ajuda a assajar la conversa clau (Fase 3).",when:"Sempre, per a tot el procés. És el cervell del Talent OS.",url:"https://chatgpt.com/g/g-6a31264a4e40819180902524214fdbea-ayam-talent-mirror"},
- {n:"Google NotebookLM",ph:["1","2","3","4"],price:"free",pr:"Gratis",lang:"CA/ES",mirror:false,what:"Puja els teus documents (onboarding, conveni, polítiques) i et fa resums, respostes i fins i tot un àudio-resum. Tot surt dels teus papers, sense inventar.",when:"Per posar ordre i treure l'essència de la documentació de RRHH que ja tens.",url:"https://notebooklm.google.com"},
- {n:"Gemini",ph:["1","2","3","4"],price:"freemium",pr:"Freemium",lang:"CA/ES",mirror:false,what:"L'assistent d'IA de Google, integrat amb Gmail, Docs i Drive: redactar, resumir i pensar al teu dia a dia.",when:"Si treballes amb l'entorn Google.",url:"https://gemini.google.com"},
- {n:"Claude",ph:["1","2","3","4"],price:"freemium",pr:"Freemium",lang:"CA/ES",mirror:true,what:"L'IA millor amb text llarg i matisat: ideal per llegir moltes ressenyes o comentaris alhora, treballar documents extensos i escriure amb un to natural i càlid. Raona amb cura, segueix bé les instruccions i s'inventa menys coses — perfecta per a l'EVP i la comunicació interna.",when:"Quan vulguis analitzar molt text o redactar amb sensibilitat. Els prompts del taller hi funcionen igual.",url:"https://claude.ai"},
- {n:"Google Forms",ph:["2"],price:"free",pr:"Gratis",lang:"CA/ES",mirror:false,what:"Enquestes anònimes en 5 minuts (pols, eNPS, 'recomanaries treballar aquí?').",when:"Per recollir senyal ràpid sense comprar res.",url:"https://forms.google.com"},
- {n:"Canva",ph:["3"],price:"freemium",pr:"Freemium",lang:"CA/ES",mirror:false,what:"Converteix l'EVP o el ritual en alguna cosa visual (pòster intern, targeta de benvinguda).",when:"Perquè l'ànima es vegi, no només es digui.",url:"https://www.canva.com"},
- {n:"Connecteam",ph:["4"],price:"freemium",pr:"Freemium (fins 10)",lang:"Multi",mirror:false,what:"App mòbil per a equip de botiga SENSE email; onboarding, comunicació, torns.",when:"Per arribar a la gent de botiga al mòbil.",url:"https://connecteam.com"},
- {n:"Looker Studio + Google Sheets",ph:["4"],price:"free",pr:"Gratis",lang:"CA/ES",mirror:false,what:"Quadre simple de rotació, eNPS i temps de cobertura per botiga.",when:"Per al ritual mensual de 30 min. Mesura pertinença, no només baixes.",url:"https://lookerstudio.google.com"}
+ {n:"GPT AYAM · Talent Mirror",ph:["1","2","3"],price:"free",pr:"Gratis",lang:"CA/ES",mirror:true,what:"El cor del sistema, ja muntat. Et construeix l'EVP (Fase 1), fa deep research de la teva empresa i et fa de candidat de diferents generacions per trobar les esquerdes (Fase 2), i et dissenya micro-millores provables (Fase 3).",when:"Idees: comença sempre aquí. Puja-li la teva oferta i el teu onboarding reals perquè treballi sobre la teva veritat, no sobre tòpics.",url:"https://chatgpt.com/g/g-6a31264a4e40819180902524214fdbea-ayam-talent-mirror"},
+ {n:"Google NotebookLM",ph:["1","2","3","4"],price:"free",pr:"Gratis",lang:"CA/ES",mirror:false,what:"Puja-li els teus documents (conveni, onboarding, valors) i només respon a partir d'ells, sense inventar.",when:"Idees: pregunta-li «què prometem com a lloc de treball sense dir-ho enlloc?»; fes-te un àudio-resum del conveni per a qui s'incorpora; detecta on la web i el manual es contradiuen.",url:"https://notebooklm.google.com"},
+ {n:"Claude",ph:["1","2","3","4"],price:"freemium",pr:"Freemium",lang:"CA/ES",mirror:true,what:"La millor amb text llarg i to càlid: raona amb cura i s'inventa menys coses.",when:"Idees: enganxa-li 100 ressenyes de Glassdoor/Indeed de cop i demana-li els patrons; redacta l'EVP i la comunicació interna amb sensibilitat. Els prompts del taller hi funcionen igual.",url:"https://claude.ai"},
+ {n:"Gemini",ph:["1","2","3","4"],price:"freemium",pr:"Freemium",lang:"CA/ES",mirror:false,what:"L'IA de Google, integrada amb Gmail, Docs i Drive.",when:"Idees: redacta l'oferta de feina directament al Docs; resumeix en segons les respostes d'un Google Forms. Útil si ja vius a l'entorn Google.",url:"https://gemini.google.com"},
+ {n:"Google Forms",ph:["2"],price:"free",pr:"Gratis",lang:"CA/ES",mirror:false,what:"Enquestes anònimes en 5 minuts.",when:"Idees: un pols d'eNPS («recomanaries treballar aquí?»); la pregunta d'or als de +5 anys («quin moment et va fer sentir que aquest era el teu lloc?»); mesura abans i després d'una micro-millora.",url:"https://forms.google.com"},
+ {n:"Canva",ph:["3"],price:"freemium",pr:"Freemium",lang:"CA/ES",mirror:false,what:"Converteix l'EVP o el ritual en una cosa visual.",when:"Idees: un pòster intern amb l'EVP; una targeta de benvinguda per al primer dia; l'anunci de feina reescrit amb imatge.",url:"https://www.canva.com"},
+ {n:"Connecteam",ph:["4"],price:"freemium",pr:"Freemium (fins 10)",lang:"Multi",mirror:false,what:"App mòbil per a equip de botiga SENSE email: onboarding, comunicació i torns en un sol lloc.",when:"Idees: dona la benvinguda i el primer dia des del mòbil; un missatge ritual setmanal que fa visible la cultura. Alternatives similars: Flip o Beekeeper.",url:"https://connecteam.com"},
+ {n:"Google Sheets (full de seguiment)",ph:["4"],price:"free",pr:"Gratis",lang:"CA/ES",mirror:false,what:"Un full senzill per veure si la cosa millora: rotació, eNPS i temps de cobrir una vacant, per botiga.",when:"Idees: una fila per botiga i una mirada de 30 min al mes. Si algun dia vols un quadre visual, connecta-hi Looker Studio (gratis) — però comença pel full.",url:"https://sheets.google.com"}
 ];
 const grid=document.getElementById('toolGrid');
 let fPhase="all", fPrice="all";
@@ -400,15 +397,14 @@ document.querySelectorAll('.copybtn').forEach(btn=>{
 });
 // download all prompts
 function downloadPrompts(){
-  const ids=["p-main","p-anomena","p-contrasta","p-prova"];
-  const titles=["GPT TALENT MIRROR (COMPLET)","RÀPID · ANOMENA","RÀPID · CONTRASTA","RÀPID · PROVA"];
+  const ids=["p-main","p-anomena","p-contrasta","p-prova","p-marlene"];
+  const titles=["GPT TALENT MIRROR (COMPLET)","RÀPID · ANOMENA","RÀPID · CONTRASTA","RÀPID · PROVA","EL MIRALL DE TALENT · PROMPT DEL TALLER"];
   let out="TALENT RETENTION OS · AYAM × Comertia\nPrompts per a RRHH — la IA és el mirall, no qui decideix.\n\n";
   ids.forEach((id,i)=>{out+="==================== "+titles[i]+" ====================\n\n"+document.getElementById(id).textContent+"\n\n\n";});
   const blob=new Blob([out],{type:"text/plain;charset=utf-8"});
   const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download="talent-retention-os-prompts.txt"; a.click();
 }
 document.getElementById('downloadAll').onclick=downloadPrompts;
-document.getElementById('downloadAll2').onclick=downloadPrompts;
 </script>
 </body>
 </html>
