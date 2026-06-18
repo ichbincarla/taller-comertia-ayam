@@ -268,6 +268,9 @@ Abans de proposar res, fes-me 2-3 preguntes per aterrar la realitat (qui ho pot 
 Després dona'm 3 micro-experiències en UN punt de contacte (onboarding / comunicació interna / ritual de botiga) que la tanquin. Per a cada una: viabilitat (alta/mitjana/baixa), com es mesura, cost/esforç (baix/mitjà/alt) i amb IA o sense IA. Recomana'n UNA: qui fa què i quan, en una frase, provable dilluns que ve.</pre>
     </div>
 
+    <h3 style="color:var(--amar);margin:40px 0 0;font-size:16px;letter-spacing:.06em;text-transform:uppercase;">Prompts usats al taller (adjunts)</h3>
+    <p class="lead" style="font-size:15px;margin-top:6px;">Els que vam fer servir en directe, tal qual.</p>
+
     <div class="promptcard">
       <div class="ph"><h3>El Mirall de Talent — el prompt del taller (versió simple)</h3><span style="display:flex;gap:8px;"><a class="copybtn" style="text-decoration:none;background:var(--amar);color:var(--ink);" href="https://chatgpt.com/g/g-6a32b8709fe88191956b3f8a2d3988a0-el-mirall-de-talent" target="_blank" rel="noopener">Obrir ↗</a><button class="copybtn" data-target="p-marlene">Copiar</button></span></div>
       <div class="desc">Ja el tens muntat (botó "Obrir"). Aquest és el prompt que vam fer servir <b>en directe al taller</b>: t'acompanya fins a l'EVP i el "per a qui NO és". Si vols fer <b>tot el procés d'una tirada</b> (EVP + diagnòstic de coherència + micro-millores), el bo és el <b>GPT complet de més amunt</b>.</div>
@@ -283,6 +286,27 @@ Quan tinguis prou material, torna un EVP clar en 3 o 4 frases, amb la veu real d
 Tanca amb l'EVP final net, el "per a qui NO és" i una sola pregunta final: "El vols més càlid, més directe o més concret?".
 Respecta línies vermelles legals i ètiques. Recorda que el text sí, la biometria no: no ajudis a inferir emocions per cara, veu o gestos a la feina, perquè està prohibit pel Reglament Europeu d'IA en contextos laborals. Amb dades personals, demana anonimitzar i treballa amb dades agregades, d'acord amb el RGPD. Quan es parli d'IA en selecció o gestió de persones, deixa clar que si decideix o influeix en decisions sobre persones pot ser alt risc; la decisió final l'ha de prendre sempre una persona. La IA només ajuda a pensar, contrastar i redactar.
 No prometis diagnòstics definitius. No prenguis decisions de contractació, promoció, acomiadament o avaluació. No demanis dades sensibles, dades biomètriques ni informació identificable de candidats o empleats. Si la persona comparteix exemples, convida-la a anonimitzar-los. Mantén-te pràctic, específic i accionable.</pre>
+    </div>
+
+    <div class="promptcard">
+      <div class="ph"><h3>Contrasta · Diagnòstic de coherència (demo Veritas)</h3><button class="copybtn" data-target="p-taller-diag">Copiar</button></div>
+      <div class="desc">Tal com el vam fer servir al taller. Fes la demo amb una marca pública coneguda (Veritas) per aprendre el mètode amb baix risc.</div>
+<pre class="prompt" id="p-taller-diag">Fes d'analista de marca empleadora. Pren Veritas com a exemple.
+A partir només del que comunica públicament (web, valors, to, presència):
+1. DIEM: quina promesa fa com a lloc per treballar-hi.
+2. VEUEN: com ho percebria un candidat de la Gen Z, un de mitja carrera i algú senior.
+3. ESQUERDES: proposa 2 o 3 possibles incoherències entre promesa i percepció, ordenades per impacte en si algú s'hi quedaria.
+Distingeix sempre què és fet públic i què és hipòtesi teva.</pre>
+    </div>
+
+    <div class="promptcard">
+      <div class="ph"><h3>Contrasta · El mirall del candidat</h3><button class="copybtn" data-target="p-taller-cand">Copiar</button></div>
+      <div class="desc">Tal com el vam fer servir al taller. Passa'l una vegada per perfil, sobre la teva última oferta real.</div>
+<pre class="prompt" id="p-taller-cand">Fes de candidat. Tria un perfil: Gen Z buscant la primera feina estable al retail / comandament intermedi de 30 i pocs / persona sènior amb molta trajectòria.
+Llegeix la nostra última oferta publicada (fica el link o copia i enganxa-la).
+Digues-me, sense filtres: què t'atrau, què et fa dubtar i en quin moment abandonaries el procés.
+Acaba amb la frase que recordaries d'aquesta empresa.
+Després, repeteix-ho amb un altre perfil.</pre>
     </div>
   </div>
 </section>
@@ -397,8 +421,8 @@ document.querySelectorAll('.copybtn').forEach(btn=>{
 });
 // download all prompts
 function downloadPrompts(){
-  const ids=["p-main","p-anomena","p-contrasta","p-prova","p-marlene"];
-  const titles=["GPT TALENT MIRROR (COMPLET)","RÀPID · ANOMENA","RÀPID · CONTRASTA","RÀPID · PROVA","EL MIRALL DE TALENT · PROMPT DEL TALLER"];
+  const ids=["p-main","p-anomena","p-contrasta","p-prova","p-marlene","p-taller-diag","p-taller-cand"];
+  const titles=["GPT TALENT MIRROR (COMPLET)","RÀPID · ANOMENA","RÀPID · CONTRASTA","RÀPID · PROVA","EL MIRALL DE TALENT · PROMPT DEL TALLER","TALLER · DIAGNÒSTIC DE COHERÈNCIA","TALLER · EL MIRALL DEL CANDIDAT"];
   let out="TALENT RETENTION OS · AYAM × Comertia\nPrompts per a RRHH — la IA és el mirall, no qui decideix.\n\n";
   ids.forEach((id,i)=>{out+="==================== "+titles[i]+" ====================\n\n"+document.getElementById(id).textContent+"\n\n\n";});
   const blob=new Blob([out],{type:"text/plain;charset=utf-8"});
